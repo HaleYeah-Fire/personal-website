@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name — Designer & Builder</title>
+  <meta name="description" content="Personal website of Your Name.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="wrap nav">
+    <a href="#" class="logo">YN</a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="theme" aria-label="Toggle dark mode">◐</button>
+  </header>
+
+  <main>
+    <!-- ============ HERO — edit your intro here ============ -->
+    <section class="wrap hero">
+      <p class="eyebrow">Hello, I'm</p>
+      <h1>Your Name.</h1>
+      <p class="lede">I make brands, websites, and the occasional strange experiment. Currently building things at <strong>Your Studio</strong>.</p>
+      <div class="cta">
+        <a class="btn" href="#work">See my work</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+    </section>
+
+    <!-- ============ WORK — swap in your own projects ============ -->
+    <section id="work" class="wrap">
+      <h2>Selected work</h2>
+      <div class="grid">
+        <a class="card" href="#">
+          <div class="thumb t1"></div>
+          <h3>Project One</h3>
+          <p>Brand identity · 2026</p>
+        </a>
+        <a class="card" href="#">
+          <div class="thumb t2"></div>
+          <h3>Project Two</h3>
+          <p>Website design · 2025</p>
+        </a>
+        <a class="card" href="#">
+          <div class="thumb t3"></div>
+          <h3>Project Three</h3>
+          <p>Naming & strategy · 2025</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="wrap about">
+      <h2>About</h2>
+      <div class="cols">
+        <p>A few sentences about who you are, what you care about, and the kind of work you love doing. Keep it human — this is the part people actually read.</p>
+        <ul class="facts">
+          <li><span>Based in</span> Your City</li>
+          <li><span>Focus</span> Brand, web, strategy</li>
+          <li><span>Off the clock</span> Something you love</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="wrap contact">
+      <h2>Let's make something.</h2>
+      <p class="links">
+        <a href="mailto:hello@example.com">Email</a>
+        <a href="https://www.linkedin.com/">LinkedIn</a>
+        <a href="https://github.com/HaleYeah-Fire">GitHub</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="wrap foot">© <span id="yr"></span> Your Name</footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    const root = document.documentElement;
+    try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
+    document.getElementById('theme').addEventListener('click', () => {
+      const dark = root.dataset.theme === 'dark' ||
+        (!root.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+      root.dataset.theme = dark ? 'light' : 'dark';
+      try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+    });
+  </script>
+</body>
+</html>
